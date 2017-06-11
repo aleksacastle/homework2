@@ -8,9 +8,10 @@ module ObjectModel
       super
     end
   end
-  # .superclass
+  # Desktop class
   class Desktop
     include LinuxFriendly
+    
     def fork_process
       'Parent: allocate memory'
     end
