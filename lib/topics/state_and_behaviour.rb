@@ -6,16 +6,17 @@ module StateAndBehaviour
   class Car
     attr_reader :year, :color, :model, :current_speed
     def self.default_car
-      Car.new {}
+      car_attributes = {}
+      new(car_attributes)
     end
 
-    def initialize(args)
-      raise ArgumentError if args.class != Hash
+    def initialize(car_attributes)
+      raise ArgumentError unless car_attributes.is_a?(Hash)
 
-      @year ||= 2015
-      @color ||= 'purple'
-      @model ||= 'skyline'
-      @current_speed ||= 0
+      @year = car_attributes.fetch(:year, 2015)
+      @color = car_attributes.fetch(:color, 'purple')
+      @model = car_attributes.fetch(:model, 'skyline')
+      @current_speed = 0
     end
 
     def speed_up(velocity)
