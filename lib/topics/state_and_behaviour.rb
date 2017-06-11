@@ -5,6 +5,7 @@ module StateAndBehaviour
   # exercise car model
   class Car
     attr_reader :year, :color, :model, :current_speed
+    
     def self.default_car
       car_attributes = {}
       new(car_attributes)
